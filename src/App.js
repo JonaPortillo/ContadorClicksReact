@@ -1,17 +1,21 @@
 import './App.css';
 import Boton from './components/Botón';
 import Contador from './components/Contador';
-import logoFCC from './images/logo.jpg'
+import logoFCC from './images/logo.jpg';
+import { useState } from 'react';
+
 
 function App() {
 
+  const [numClicks, setNumClicks] = useState(0);
+
   const manejarClick = () => {
-    console.log("Click")
-  }
+    setNumClicks(numClicks + 1);
+  };
 
   const reiniciarContador = () => {
-    console.log("Reiniciar")
-  }
+    setNumClicks(0);
+  };
 
   return (
     <div className="App">
@@ -23,7 +27,7 @@ function App() {
       </div>
       <div className='contenedor-principal'>
         <Contador
-          numClicks='5'
+          numClicks={numClicks}
         />
         <Boton
           texto='Click'
